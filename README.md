@@ -194,12 +194,3 @@ message_spam_detection
 
 ---
 
-# 👨‍💻 Author
-
-**Van Anh**
-
-Software Engineer
-
-Interested in Backend Engineering, Artificial Intelligence, and Distributed Systems.
-
-If you find this project interesting, feel free to ⭐ the repository.
