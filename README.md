@@ -80,7 +80,7 @@ After preprocessing, the text data is transformed into numerical vectors using *
 ## Sample Dataset
 
 <p align="center">
-<img src="images/dataset.jpg" width="80%">
+<img src="./images/dataset.jpg" width="80%">
 </p>
 
 ---
