@@ -12,166 +12,194 @@
 
 # 📖 Overview
 
-Spam SMS messages are one of the most common forms of unwanted communication. This project develops a complete Machine Learning pipeline capable of automatically classifying SMS messages into **Spam** and **Ham (Non-Spam)**.
+Spam Message Classification System is an end-to-end Machine Learning project designed to automatically classify SMS messages as **Spam** or **Ham (Non-Spam)**.
 
-The system covers the entire workflow, including data preprocessing, TF-IDF feature extraction, model training, performance evaluation, and Apache Kafka integration for streaming message processing.
+The project covers the complete machine learning pipeline, including text preprocessing, TF-IDF feature extraction, model training, evaluation, and Apache Kafka integration for real-time message streaming.
 
 ---
 
 # ✨ Features
 
-- 📩 SMS Spam Classification
-- 🧹 Text preprocessing
-- 🔤 TF-IDF feature extraction
-- 🤖 Seven supervised Machine Learning models
-- 📊 Performance comparison and evaluation
-- 📡 Apache Kafka streaming integration
+* 📩 SMS Spam Classification
+* 🧹 Text Preprocessing
+* 🔤 TF-IDF Feature Extraction
+* 🤖 Multiple Supervised Machine Learning Models
+* 📊 Model Performance Evaluation
+* 📡 Apache Kafka Streaming Integration
+* ☁️ Word Cloud Visualization
 
 ---
 
 # 🛠 Tech Stack
 
-| Category | Technologies |
-|----------|--------------|
-| Programming Language | Python |
-| Machine Learning | Scikit-learn |
-| Data Processing | Pandas, NumPy |
-| Feature Engineering | TF-IDF |
-| Streaming | Apache Kafka |
-| Models | Logistic Regression, Complement Naive Bayes, Decision Tree, Random Forest, Support Vector Classifier (SVC), XGBoost, LightGBM |
+| Category             | Technologies                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| Programming Language | Python                                                                                            |
+| Machine Learning     | Scikit-learn                                                                                      |
+| Data Processing      | Pandas, NumPy                                                                                     |
+| Feature Engineering  | TF-IDF                                                                                            |
+| Streaming            | Apache Kafka                                                                                      |
+| Models               | Logistic Regression, Complement Naive Bayes, Decision Tree, Random Forest, SVC, XGBoost, LightGBM |
 
 ---
 
-# 🔄 Machine Learning Workflow
+# 🏗 Architecture
 
 ```text
 Dataset
-      │
-      ▼
+     │
+     ▼
 Data Cleaning
-      │
-      ▼
+     │
+     ▼
 Text Preprocessing
-      │
-      ▼
+     │
+     ▼
 TF-IDF Feature Extraction
-      │
-      ▼
+     │
+     ▼
 Model Training
-      │
-      ▼
+     │
+     ▼
 Performance Evaluation
-      │
-      ▼
+     │
+     ▼
 Spam Prediction
+```
+
+### Real-time Prediction Pipeline
+
+```text
+SMS Message
+     │
+     ▼
+Kafka Producer
+     │
+     ▼
+Apache Kafka
+     │
+     ▼
+Kafka Consumer
+     │
+     ▼
+Trained ML Model
+     │
+     ▼
+Spam / Ham Prediction
 ```
 
 ---
 
-# 📂 Dataset
+# 📂 Project Structure
 
-The dataset contains SMS messages labeled into two classes:
+```text
+project
+├── data
+├── notebooks
+├── models
+├── kafka
+├── images
+├── src
+│   ├── preprocessing
+│   ├── training
+│   ├── evaluation
+│   └── prediction
+├── requirements.txt
+└── README.md
+```
 
-- 📩 Spam
-- ✅ Ham (Non-Spam)
+> *Adjust the structure above if it differs from your actual project.*
 
-After preprocessing, the text data is transformed into numerical vectors using **TF-IDF Vectorization** before training the machine learning models.
+---
 
-## Sample Dataset
+# 📸 Screenshots
+
+## Dataset Sample
 
 <p align="center">
 <img src="./images/dataset.jpg" width="80%">
 </p>
 
----
-
-# 🤖 Machine Learning Models
-
-The following supervised learning algorithms were implemented and evaluated:
-
-| Model | Status |
-|--------|--------|
-| Logistic Regression | ✅ |
-| Complement Naive Bayes | ✅ |
-| Decision Tree | ✅ |
-| Random Forest | ✅ |
-| Support Vector Classifier (SVC) | ✅ |
-| XGBoost | ✅ |
-| LightGBM | ✅ |
-
----
-
-# 🏆 Key Results
-
-- Successfully implemented and evaluated **7 Machine Learning models**.
-- Achieved **98.47% Accuracy** using **Logistic Regression**.
-- Compared multiple algorithms based on Accuracy and Precision.
-- Integrated Apache Kafka for real-time message streaming.
-
----
-
-# 📊 Experimental Results
-
-The performance of each model was evaluated using:
-
-- Accuracy
-- Precision
-- Recall
-- F1-score
-
-## Performance Comparison
+## Model Performance Comparison
 
 <p align="center">
 <img src="./images/model_comparison_table.png" width="80%">
 </p>
 
-The comparison demonstrates that **Logistic Regression** achieved the highest overall accuracy on the dataset, while ensemble learning models such as **Random Forest**, **XGBoost**, and **LightGBM** also delivered competitive performance.
-
----
+The project evaluates seven supervised learning algorithms using Accuracy, Precision, Recall, and F1-score. Logistic Regression achieved the best overall performance with an accuracy of **98.47%**.
 
 ## Performance Visualization
-
-The following chart compares the training and testing performance of all implemented models.
 
 <p align="center">
 <img src="./images/model_comparison_chart.png" width="80%">
 </p>
 
----
-
-# ☁️ Word Cloud Analysis
-
-To better understand the characteristics of spam messages, a Word Cloud was generated based on the dataset.
-
-Frequently occurring words such as **FREE**, **CALL**, **NOW**, and **TEXT** appear prominently, reflecting common patterns found in spam SMS messages.
+## Spam Word Cloud
 
 <p align="center">
 <img src="./images/spam_wordcloud.png" width="70%">
 </p>
 
+The Word Cloud highlights frequently occurring terms in spam messages, providing an intuitive visualization of common spam patterns.
+
 ---
 
-# 📡 Apache Kafka Integration
+# 🚀 How to Run
 
-Apache Kafka was integrated into the project to simulate real-time message streaming.
+## Prerequisites
 
-The workflow consists of:
+* Python 3.x
+* pip
+* Apache Kafka (optional for streaming)
 
-- Producer publishes incoming SMS messages.
-- Kafka transports messages.
-- Consumer receives messages.
-- The trained Machine Learning model predicts whether the message is Spam or Ham.
+## Clone the repository
 
-This architecture demonstrates how Machine Learning models can be deployed in a streaming environment.
+```bash
+git clone https://github.com/your-username/spam-message-classification.git
+cd spam-message-classification
+```
+
+## Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Train the model
+
+```bash
+python train.py
+```
+
+## Run prediction
+
+```bash
+python predict.py
+```
+
+## Run Kafka Streaming (Optional)
+
+Start Kafka and execute the producer and consumer applications:
+
+```bash
+python producer.py
+python consumer.py
+```
 
 ---
 
 # 🚀 Future Improvements
 
-- Deploy the trained model as a REST API.
-- Dockerize the application.
-- Apply Deep Learning models such as LSTM and BERT.
-- Deploy on cloud platforms.
-- Build a web-based interface for real-time spam detection.
+* Deploy the trained model as a REST API
+* Dockerize the application
+* Apply Deep Learning models such as LSTM and BERT
+* Deploy on cloud platforms
+* Build a web-based interface for real-time spam detection
 
 ---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+Feel free to use, modify, and distribute this project for educational and personal purposes.
